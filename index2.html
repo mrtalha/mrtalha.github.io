@@ -1,0 +1,770 @@
+<!DOCTYPE>
+<html>
+    <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+       <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+       <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+        
+			<link rel="stylesheet" type="text/css" href="style.css">
+<title>GPA/CGPA calculation</title>
+		<style>
+        
+            
+   
+            
+        </style>
+    </head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+         //Redirect-------------------------------
+           // function Redirect() {
+             //  window.location="http://www.facebook.com";
+            }
+        // Redirect();
+      </script>
+    <body>    
+       <header>
+           <a class="hlinks" target="_blank" href="http://www.uog.edu.pk">UOG website</a>
+           <a class="hlinks" target="_blank"  href="http://student.uog.edu.pk">UOGIS</a>
+           <a id="aboutlink" class="hlinks">About me</a>
+           
+       </header>
+       
+       
+       <script> 
+            $(document).ready(function(){
+                $("#navgpa").click(function(){
+                    $("#cgpacontainer").animate({width: 'hide'});
+                    $("#gpacontainer").animate({width: 'toggle'});
+                    $("#cgparesult").hide();
+                    $("#gparesult").hide();
+                    $(".dropdown-content").hide();
+                    
+                    
+                });
+                $("#navcgpa").click(function(){
+                    $("#gpacontainer").animate({width: 'hide'});
+                    $("#cgpacontainer").animate({width: 'toggle'});
+                    $("#cgparesult").hide();
+                    $("#gparesult").hide();
+                    $(".dropdown-content").hide();
+                });
+                $(".dropbtn").click(function(){
+                   $(".dropdown-content").animate({height: 'toggle'});
+                });
+                $("#aboutlink").click(function(){
+                   $("#aboutdiv").animate({width: 'show'});
+                });
+               
+            });
+      </script> 
+       
+       
+       <div id="view">
+            <div id="aboutdiv"  style="float:right;height:50px;font-size:22px;width:250px;margin-top:500px;margin-right:10px;font-family: 'Satisfy', cursive;color:white;display:none;">
+                Muhammad Talha Akbar
+                <br>
+                13151556-054@uog.edu.pk
+                <br>
+                BS Information Technology
+            </div>        
+        
+        <div id="cgpacontainer" style="">
+            <div id="cgpabox" >
+              <span>CGPA Calculator</span>
+               <br>
+                <hr>
+
+
+
+
+                <table id="gpatable">
+                    <tr>
+                       <td>1</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(0,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(0,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>2</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(1,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(1,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>3</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(2,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(2,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>4</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(3,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(3,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>5</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(4,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(4,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>6</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(5,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(5,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>7</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(6,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(6,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>8</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(7,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(7,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>9</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(8,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(8,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>10</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(9,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(9,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                       <td>11</td>
+                        <td>
+                            <input class="cgin" oninput="setGpa(10,this.value)" type="number" placeholder="[GPA of a semester]" >
+                        </td>
+                        <td>
+                          <input class="cgin" oninput="setGpaHrs(10,this.value)" type="number" placeholder="[Total Credit Hrs]" >
+
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+            <br>
+            <div id="cgpabtn">
+                Calculate
+
+            </div>
+
+
+            <script>
+                var gpas = Array(0,0,0,0,0,0,0,0,0,0,0);
+                var gpahrs = Array(0,0,0,0,0,0,0,0,0,0,0);
+                function setGpa(g,gp){
+          //grade = parseFloat(marks);
+                    gpas[g] = parseFloat(gp);
+                    if (gpas[g]>= 0 && gpas[g]<=4){
+                        gpas[g] = parseFloat(gp);
+
+                    }
+                    else if (gpas[g]<0 || gpas[g]>4){
+                        gpas[g] = 0;
+                        alert("Invalid value");
+                    }
+                    else if(gpas[g] == "" || gpas[g] ==null){
+                        gpas[g] = 0;
+                    }
+                    else if (isNaN(gpas[g])){
+                        gpas[g] = 0;
+                    }
+                    else{
+                        gpas[g] = 0;
+                    }
+
+                }
+                function setGpaHrs(h,gpah){
+                    //chour = parseInt(h);
+                    gpahrs[h] = parseFloat(gpah);
+                    if (gpahrs[h]>= 0 && gpahrs[h]<=30){
+                        gpahrs[h] = parseFloat(gpah);
+
+                    }
+                    else if (isNaN(gpahrs[h])){
+                        gpahrs[h] = 0;
+                    }
+                    else if(gpahrs[h] == "" || gpahrs[h] ==null){
+                        gpahrs[h] = 0;
+                    }
+                    else if (gpahrs[h]<0 || gpahrs[h]>20){
+                        gpahrs[h] = 0;
+                        alert("Invalid value");
+                    }
+                    else{
+                        gpas[g] = 0;
+                    }
+
+                }
+                function calcgpa(){
+                    //alert (grade * chour)/chour;
+                    //alert (arrgrade[0]*arrhour[0])/arrhour[0];
+               // var cgpa = (gpas[0]*gpahrs[0] + gpas[1]*gpahrs[1]+ gpas[2]*gpahrs[2]+ gpas[3]*gpahrs[3]+ gpas[4]*gpahrs[4]+ gpas[5]*gpahrs[5]+ gpas[6]*gpahrs[6]+ gpas[7]*gpahrs[7]+ gpas[8]*gpahrs[8]+ gpas[9]*gpahrs[9]+ gpas[10]*gpahrs[10])/(gpahrs[0] + gpahrs[1]+ gpahrs[2]+ gpahrs[3]+ gpahrs[4]+ gpahrs[5]+ gpahrs[6]+ gpahrs[7]+ gpahrs[8]+ gpahrs[9]+ gpahrs[10]);
+                    var cgpa = (gpas[0]*gpahrs[0] + gpas[1]*gpahrs[1]+ gpas[2]*gpahrs[2]+ gpas[3]*gpahrs[3]+ gpas[4]*gpahrs[4]+ gpas[5]*gpahrs[5]+ gpas[6]*gpahrs[6]+ gpas[7]*gpahrs[7]+ gpas[8]*gpahrs[8]+ gpas[9]*gpahrs[9]+ gpas[10]*gpahrs[10])/(gpahrs[0] + gpahrs[1]+ gpahrs[2]+ gpahrs[3]+ gpahrs[4]+ gpahrs[5]+ gpahrs[6]+ gpahrs[7]+ gpahrs[8]+ gpahrs[9]+ gpahrs[10]);
+                    cgpa = cgpa.toFixed( 2 );
+                    if (isNaN(cgpa)){
+                        document.getElementById('cgpaspan').innerHTML = "Please review your input";
+                    }
+                    else{
+                     document.getElementById('cgpaspan').innerHTML = cgpa;   
+                    }
+                    
+
+                }
+
+                $(document).ready(function(){
+
+                        $("#cgpabtn").click(function(){
+                            calcgpa();
+                            $("#cgparesult").slideDown();
+                        });
+                        $(".cgin").change(function(){
+                            $("#cgparesult").slideUp();
+                        });
+
+                });
+
+            </script>
+
+            </div>
+            <div id="cgparesult" style="">
+               CGPA: <span id="cgpaspan"></span>
+
+            </div> 
+        </div>
+        <div id="gpacontainer">
+            <div id="gpabox">
+          <span>GPA Calculator</span>
+           <br>
+            <hr>
+            
+            
+            <table style="float:right; text-align:center; border:1px solid green">
+              <caption>Grades Policy</caption>
+               <tr>
+                   <th>Marks</th>
+                   <th>Grade</th>
+                   <th>GPA</th>
+               </tr>
+                <tr>
+                    <td>84.5 & above</td>
+                    <td>A+</td>
+                    <td>4.0</td>
+                </tr>
+                <tr>
+                    <td>79.5 -84</td>
+                    <td>A&nbsp;&nbsp;</td>
+                    <td>3.7</td>
+                </tr>
+                <tr>
+                    <td>74.5 - 79</td>
+                    <td>B+</td>
+                    <td>3.4</td>
+                </tr>
+                <tr>
+                    <td>69.5 - 74</td>
+                    <td>B&nbsp;&nbsp;</td>
+                    <td>3.0</td>
+                </tr>
+                <tr>
+                    <td>64.5 - 69</td>
+                    <td>B-</td>
+                    <td>2.5</td>
+                </tr>
+                <tr>
+                    <td>59.5 - 64</td>
+                    <td>C+</td>
+                    <td>2.0</td>
+                </tr>
+                <tr>
+                    <td>54.5 - 59</td>
+                    <td>C&nbsp;&nbsp;</td>
+                    <td>1.5</td>
+                </tr>
+                <tr>
+                    <td>49.5 - 54</td>
+                    <td>D&nbsp;&nbsp;</td>
+                    <td>1.0</td>
+                </tr>
+                <tr>
+                    <td>49 & below</td>
+                    <td>F&nbsp;&nbsp;</td>
+                    <td>0.0</td>
+                </tr>
+            </table>
+            
+            <table id="gpatable">
+                <tr>
+                   <td>1</td>
+                    <td>
+                        <select class="gpain" name="grade" onchange="setGrade(0,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="gpain" name="hrs" onchange="setHour(0,this.options[this.selectedIndex].value)">
+                       <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+                    </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <select  class="gpain" onchange="setGrade(1,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+       
+                    </td>
+                    <td>
+                         <select class="gpain" onchange="setHour(1,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Credit Hrs</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <select class="gpain" onchange="setGrade(2,this.options[this.selectedIndex].value)">
+                             <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(2,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Credit Hrs</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>
+                        <select class="gpain" onchange="setGrade(3,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(3,this.options[this.selectedIndex].value)">
+           <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <select class="gpain" onchange="setGrade(4,this.options[this.selectedIndex].value)">
+                             <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(4,this.options[this.selectedIndex].value)">
+           <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        <select class="gpain" onchange="setGrade(5,this.options[this.selectedIndex].value)">
+                             <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(5,this.options[this.selectedIndex].value)">
+          <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <select class="gpain"  onchange="setGrade(6,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(6,this.options[this.selectedIndex].value)">
+           <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>
+                        <select class="gpain"  onchange="setGrade(7,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(7,this.options[this.selectedIndex].value)">
+           <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>
+                        <select class="gpain"  onchange="setGrade(8,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(8,this.options[this.selectedIndex].value)">
+           <option value="0" selected>Credit Hrs</option>
+                    <option  value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>
+                        <select class="gpain" onchange="setGrade(9,this.options[this.selectedIndex].value)">
+                            <option value="0" selected>Grade</option>
+                            <option value="4.0">A+</option>
+                            <option value="3.7">A</option>
+                            <option value="3.4">B+</option>
+                            <option value="3.0">B</option>
+                            <option value="2.5">B-</option>
+                            <option value="2.0">C+</option>
+                            <option value="1.5">C</option>
+                            <option value="1.0">D</option>
+                            <option value="0.0">F</option>
+                        </select>
+        
+                    </td>
+                    <td>
+                        <select class="gpain" onchange="setHour(9,this.options[this.selectedIndex].value)">
+           <option value="0" selected>Credit Hrs</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="10">10</option>
+        </select>
+                    </td>
+                </tr>
+                
+                
+            </table>
+           
+            
+            
+         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <br>
+        <div id="calcbtn">
+            Calculate
+        </div>
+        
+        <script>
+            var grade = 0;
+            var chour = 0;
+            var arrgrade = Array (0,0,0,0,0,0,0,0,0,0);
+            var arrhour = Array (0,0,0,0,0,0,0,0,0,0);
+            var points = Array (0,0,0,0,0,0,0,0,0,0);
+            function setGrade(i,marks){
+                //grade = parseFloat(marks);
+                arrgrade[i] = parseFloat(marks);
+            }
+            function setHour(j,h){
+                //chour = parseInt(h);
+                arrhour[j] = parseInt(h);
+                
+            }
+            function view(){
+                //alert (grade * chour)/chour;
+                //alert (arrgrade[0]*arrhour[0])/arrhour[0];
+            var gpa = (arrgrade[0]*arrhour[0] + arrgrade[1]*arrhour[1]+ arrgrade[2]*arrhour[2]+ arrgrade[3]*arrhour[3]+ arrgrade[4]*arrhour[4]+ arrgrade[5]*arrhour[5]+ arrgrade[6]*arrhour[6]+ arrgrade[7]*arrhour[7]+ arrgrade[8]*arrhour[8]+ arrgrade[9]*arrhour[9]  )/(arrhour[0] + arrhour[1]+ arrhour[2]+ arrhour[3]+ arrhour[4]+ arrhour[5]+ arrhour[6]+ arrhour[7]+ arrhour[8]+ arrhour[9]);
+                gpa = gpa.toFixed( 2 );
+                 if (isNaN(gpa)){
+                        document.getElementById('gpaspan').innerHTML = "Please review your input";
+                    }
+                    else{
+                     document.getElementById('gpaspan').innerHTML = gpa;
+                    }
+                    
+
+            }
+            $(document).ready(function(){
+
+                        $("#calcbtn").click(function(){
+                            
+                            view();
+                           
+                            $("#gparesult").slideDown();
+                        });
+                       $(".gpain").change(function(){
+                           $("#gparesult").slideUp();
+                        });
+
+                });
+            
+        </script>
+        </div>
+            <div id="gparesult">
+                 GPA: <span id="gpaspan"></span>
+            </div>
+        </div>
+        
+         <div id="parent" style="float:left;">
+              <div id="trans" >
+                  <span style="">Calculate your GPA and CGPA</span>
+
+                  <br>
+                  Easily
+                  <br>
+                  <br>
+                  <span style="color:red;font-weight:bold">GPA: </span> Grade Point Average
+                  <br>
+                  <span style="color:red;font-weight:bold">CGPA:</span> Cumulative Grade Point Average
+              </div>
+               <a class="navlinks" id="navcgpa" style="">CGPA</a>
+               <a class="navlinks" id="navgpa">GPA</a>
+        </div>
+        </div>
+        <footer>
+            GPA/CGPA calculation Web App - IT Department
+        </footer>
+    </body>
+</html>
